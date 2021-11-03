@@ -1,0 +1,121 @@
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  background-image: url(./bg-img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
+.heli-copter{
+    transform: translate(400PX, 300PX);
+}
+.cockpit{
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    width: 195px;
+    height: 195px;
+    border-radius: 100px 40px 50px 50px;
+    background-color: rgb(212, 112, 179);
+}
+.cockpit::before{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    left: -25px;
+    width: 170px;
+    height: 170px;
+    border-radius:40px ;
+    background-color: rgb(29, 29, 29);
+}
+.cockpit::after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -60px;
+    left: -60px;
+    width: 170px;
+    height: 170px;
+    border-radius:40px ;
+    background-color: rgb(54, 53, 53);
+}
+
+.tail{
+    position: absolute;
+    top: 50px;
+    left: 150px;
+    transform-origin: left center;
+    border-top: 10px solid transparent;
+    border-bottom: 80px solid transparent;
+    border-left: 350px solid #2fadd2;
+    border-bottom-right-radius: 10px;
+    height: 10px;
+}
+.main{
+    position: absolute;
+    left: 130px;
+    top: -10px;
+    width:40px;
+    height: 20px;
+    background-color: #302e37;
+
+}
+.rotor{
+    width: 700px;
+    height: 700px;
+    border-radius: 350px;
+    position: absolute;
+    top: -360px;
+    left: -200px;
+    z-index: 2;
+    overflow: hidden;
+    background-color: #a299ac ;
+    opacity: 0.12;
+    transform: scaleY(0.075);
+}
+.rotator div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -30px;
+    margin-left: -350px;
+    width: 700px;
+    height: 80px;
+    background-color:#fff ;
+}
+.rotator div:nth-child(1){
+    transform: rotate(0deg);
+}
+.rotor div:nth-child(2){
+    transform: rotate(90deg);
+}
+@keyframes bounce{
+    0%,100%{
+transform: translate(0px, -50px ) rotate(-15deg);
+    } 
+    50%{
+        transform: translate(0px, 50px ) rotate(-10deg);
+    }
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.heli-copter{
+    animation: bounce 5s infinite;
+}
+.rotator{
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 350px;
+    animation: rotate 0.6s linear infinite;
+}
